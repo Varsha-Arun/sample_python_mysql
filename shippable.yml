@@ -2,14 +2,11 @@ language: python
 
 python:
   - 2.7
-  
-services:
-  - mysql
-  
+
 install:
   - pip install -r requirements.txt
   
-build_image: drydock/u14pytpls:prod
+build_image: shippable/minv2
 
 # Make folders for the reports, and create the SQL db
 before_script:
