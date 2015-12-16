@@ -3,8 +3,13 @@ language: python
 python:
   - 2.7
   
+services:
+  - mysql
+
 install:
   - pip install -r requirements.txt
+  
+build_image: drydock/u14pytall:tip
 
 # Make folders for the reports, and create the SQL db
 before_script:
@@ -16,3 +21,5 @@ script:
   - nosetests test.py --with-xunit --xunit-file=shippable/testresults/nosetests.xml
   - which python && coverage run --branch test.py
   - which python && coverage xml -o shippable/codecoverage/coverage.xml test.py
+  
+#archive: true
